@@ -85,6 +85,99 @@ const myObj ={
 };
 console.log(myObj);
 
+// Objetos en JavaSript
+// Tipo de datos array
+
+const cancionesCh30 = ["Highway Star", "trouble", "Saoko", "Rock DJ"];
+
+const misDatosDePerfil = {
+    name: "Sergio",
+    lastname: "Torres",
+    age: 39,
+    isBelicoso: false,
+    fullName : function (){
+        return `Nombre completo de Serch: ${this.name} ${this.lastname}`
+    },
+
+    upperFullName: function(){
+        const sentence = `Nombre completo de Serch: ${this.name} ${this.lastname}`;
+
+        console.log(sentence.toUpperCase());
+    }
+};
+
+console.log(misDatosDePerfil);
+console.table(misDatosDePerfil);
+console.log(misDatosDePerfil.fullName());
+console.log(misDatosDePerfil.upperFullName());
+
+
+// Conversión explícita de misDatosDePerfil 
+
+const horaDescanso = 13;
+console.log(`Hora descanso ${horaDescanso} h.`);//concatenacion
+const horaDescansoTxt = String(horaDescanso);
+console.log ("Hora descanso " + horaDescansoTxt + " h."); //concatenacion
+console.log ("Hora retorno: " + horaDescanso+ .15);//concatenacion no suma
+
+const colorVerde = 0x008000;//32768
+console.log(`El valor RGB del color verde es ${colorVerde}`);//32768
+console.log(`El valor RGB del color verde es ${String(colorVerde)}`);//32768
+console.log(`El valor RGB del color verde es ${colorVerde.toString()}`);//32768
+console.log(`El valor RGB del color verde es ${colorVerde.toString(16)}`);//32768
+console.log(`El valor RGB del color verde es #${colorVerde.toString(16).padStart(6,"0")}`);//#008000
+
+// Conversión a Number
+
+const myAgeText = "25";
+const sumatoria = 10 + myAgeText; //1025
+console.log(`Valor de la sumatoria ${sumatoria}`);//1025 porque hace concatenación en lugar de suma, hay que convertir en string a numero
+console.log(`Valor de la sumatoria ${10 + Number(myAgeText)}`);//35 porque ya se convirtió el string a numero
+console.log(`Valor de la sumatoria ${10 + parseInt(myAgeText)}`);// 35 porque se utlizo un metodo parseInt para converir el string
+console.log(`Valor de la sumatoria ${10 + parseFloat(myAgeText)}`);// 35 porque se utlizo un metodo parseInt para converir el string, este toma la parte entera y la decimal
+console.log(`Valor de la sumatoria ${10 + (+myAgeText)}`);// 35 con operador unario, este solo actua en el caracter de la derecha, se utiliza para reducir código
+
+
+//Diferencias entre Number() y parseInt()
+//Number convierte enternos y decimales
+//parseInt converte solo la parte entera
+console.log(parseInt(100.567));//100
+//Number devuelve Nan si la cadena contiene algún caracter no numerico
+//parseInr convierte los enteros hasta encontrar un caracter no numerico, si la entrada no comienza con un valor numerico, devuelve nan
+console.log(Number("123-426")); //nan
+console.log(parseInt("123-426")); //123
+console.log(parseInt("$123-426")); //nan
+console.log(parseInt("$123-426".slice(1))); //123
+console.log(Number(true));//1
+console.log(parseInt(true));//nan
+
+// Conversión a booleano
+// En la conversión de boolean los siguientes valores son false: todo lo que pongamos como "false", "", 0, undefined, null
+
+console.log("Boolean(1): "+Boolean(1));// true
+console.log("Boolean(1000): "+Boolean(1000));// true
+console.log("Boolean('Hola'): "+Boolean('Hola'));// true
+console.log("Boolean(false): "+Boolean('false'));// true
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
