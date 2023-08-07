@@ -158,6 +158,14 @@ console.log("Boolean(1): "+Boolean(1));// true
 console.log("Boolean(1000): "+Boolean(1000));// true
 console.log("Boolean('Hola'): "+Boolean('Hola'));// true
 console.log("Boolean(false): "+Boolean('false'));// true
+console.log( "Boolean(' '): " + Boolean(" ")  ); // true
+
+// Number
+// [] -> 0 , [30] -> 30, [30,33] -> NaN, false -> 0, true -> 1
+// String
+// [] -> "" , [12,2] -> "12,2", function(){} -> "funtion(){}", {} -> [object, object]
+
+console.log ( String( JSON.stringify( {name:"sergio"}) ));
 
 
 
