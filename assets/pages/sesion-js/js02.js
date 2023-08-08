@@ -166,3 +166,32 @@ console.log(`Sumatoria de múltiples números: ${ sumatoriaMultiplesNumeros(2)}`
 console.log(`Sumatoria de múltiples números: ${ sumatoriaMultiplesNumeros(2, 5, 10, 9)}`); //26
 
 
+
+/* 
+Función callback
+
+Es una función que se pasa a otra función que se pasa como argumento.
+Se pasa en el argumento como referencia. SIN PARÉNTESIS.
+
+
+
+
+*/
+
+function saludoSquirtle(nombre){
+    return "Vamoacalmarno "+ nombre;
+};
+
+function saludoALosPokemon (){
+    return "Yo te elijo";
+};
+
+function eligiendoPokebola(saludo, nombre){
+    console.log("Hola, estás en la liga pokemon");
+    console.log("Elige a tu mejor Pokemon");
+    console.log(saludo(nombre));
+};
+
+eligiendoPokebola (saludoALosPokemon);
+eligiendoPokebola (saludoSquirtle, "Leo");
+
