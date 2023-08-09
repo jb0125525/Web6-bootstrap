@@ -339,15 +339,17 @@ Saludo 10
 
 
 function saludarRec(veces, contador = 1) {
+    console.log(`contador y num veces al iniciar la vuelta${contador}, ${veces}`);
     if (contador > veces) {
-        return;
+        return ;
     }
-    console.log(`Saludo ${contador}`);
+    console.log(`Saludo ${contador}, ${veces}`);
     saludarRec(veces, contador + 1);
-}
+    console.log(`contador y num veces al finalizar la vuelta${contador}, ${veces}`);
+};
 
 saludarRec(10);
-saludarRec(34);
+saludarRec(5);
 
 
 
@@ -371,6 +373,15 @@ const rps = (p1, p2) => {
 console.log(rps("paper","rock"));
 console.log(rps("rock","rock"));
 console.log(rps("scissors","rock"));
+
+
+const numbers = [1, 2, 3, 4, 5];
+
+function logNumber(number) {
+    console.log(number);
+}
+
+numbers.forEach(logNumber);
 
 
 
