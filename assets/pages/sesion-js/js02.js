@@ -343,7 +343,7 @@ function saludarRec(veces, contador = 1) {
     if (contador > veces) {
         return ;
     }
-    console.log(`Saludo ${contador}, ${veces}`);
+    console.log(`Saludo ${contador}`);
     saludarRec(veces, contador + 1);
     console.log(`contador y num veces al finalizar la vuelta${contador}, ${veces}`);
 };
