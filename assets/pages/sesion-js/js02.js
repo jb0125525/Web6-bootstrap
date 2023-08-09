@@ -310,13 +310,13 @@ function factorialConCicloFor(numero) {
 
 console.log(`El factorial de 5 es: ${factorialConCicloFor(5)}`) // 1*2*3*4*5 = 120
 
-function factorialConRecursividad (numero){
-if (numero <= 0 ) {
-    return 1;
-} else {
-    console.log(`${numero} * ${numero-1}`)
-    return numero * factorialConRecursividad(numero -1);
-}
+function factorialConRecursividad(numero) {
+    if (numero <= 0) {
+        return 1;
+    } else {
+        console.log(`${numero} * ${numero - 1}`)
+        return numero * factorialConRecursividad(numero - 1);
+    }
 
 
 };
@@ -337,18 +337,40 @@ Saludo 10
 
 */
 
-function saludo2(numeroSaludo){
-    if (numeroSaludo === 0) {
-        return 1;
+
+function saludarRec(veces, contador = 1) {
+    if (contador > veces) {
+        return;
+    }
+    console.log(`Saludo ${contador}`);
+    saludarRec(veces, contador + 1);
+}
+
+saludarRec(10);
+saludarRec(34);
+
+
+
+// rock paper scissors
+
+const rps = (p1, p2) => {
+    let a = "scissors";
+    let b = "paper";
+    let c = "rock";
+
+    if (p1 === a && p2 === b || p1 === b && p2 === c || p1 === c && p2 === a) {
+        return "Player 1 won!";
+    } else if (p1 === p2){
+        return "Draw!";
     } else {
-            console.log(`Saludo: ${numeroSaludo}`)
-            return numeroSaludo * saludo2 (numeroSaludo - 1);
+        return "Player 2 won!";
     }
-    
-    }
-    saludo2(10);
 
+};
 
+console.log(rps("paper","rock"));
+console.log(rps("rock","rock"));
+console.log(rps("scissors","rock"));
 
 
 
