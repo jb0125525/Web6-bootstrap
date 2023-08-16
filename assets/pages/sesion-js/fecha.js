@@ -1,10 +1,5 @@
 console.log("Tarea de fecha");
 
-let number1 = parseInt(prompt("Escribe el año (4 dígitos) : "));
-let number2 = parseInt(prompt("Escribe el número del mes : "));
-let number3 = parseInt(prompt("Ecribe el número del día: "));
-
-
 function century(number1) {
     let a = "";
 
@@ -19,7 +14,8 @@ function century(number1) {
 
 };
 
-//console.log(century(1995));
+console.log(century(1995));
+
 
 function year(number1) {
     let x = (number1 % 100);
@@ -30,10 +26,8 @@ function year(number1) {
 
 };
 
-//console.log(year(1995));
+console.log(year(1995));
 
-
-//console.log("--------------");
 
 
 function bi(number1) {
@@ -48,10 +42,7 @@ function bi(number1) {
 
 };
 
-// console.log(bi(1995));
-// console.log(bi(2004));
-// console.log(bi(2000));
-// console.log(bi(2001));
+console.log(bi(1995));
 
 function month(number2) {
     let d = "";
@@ -89,14 +80,15 @@ function month(number2) {
     };
     return d
 };
-//console.log(month(3));
+
+console.log(month(3));
 
 function day(number3) {
     e = number3;
     return e;
 };
 
-// console.log(day(24));
+console.log(day(24));
 
 
 
@@ -115,21 +107,31 @@ function weekDay(f1, f2, f3, f4, f5) {
 
 };
 
-//console.log(weekDay(century(1995),year(1995), bi(1995),month(3),day(24)));
+console.log(weekDay(century(1995), year(1995), bi(1995), month(3), day(24)));
 
 function laborDay(f6) {
     let result = "";
     switch (f6) {
         case 1:
+            result = "Lunes, día laborable";
+            break;
         case 2:
+            result = "Martes, día laborable";
+            break;
         case 3:
+            result = "Miércoles, día laborable";
+            break;
         case 4:
+            result = "Jueves, día laborable";
+            break;
         case 5:
-            result = "It's labor day";
+            result = "Viernes, día laborable";
             break;
         case 0:
+            result = "Sábado, fin de semana";
+            break;
         case 6:
-            result = "It's weekend";
+            result = "Domingo, fin de semana";
             break;
 
         default:
@@ -137,19 +139,44 @@ function laborDay(f6) {
     }
     return result;
 };
-
-const result = laborDay(weekDay(century(number1), year(number1), bi(number1), month(number2), day(number3)));
-
-document.getElementById("test").innerHTML= result;
-
-//console.log(laborDay(weekDay(century(1995),year(1995), bi(1995),month(3),day(24))));
-console.log(laborDay(weekDay(century(number1), year(number1), bi(number1), month(number2), day(number3))));
+console.log(laborDay(weekDay(century(1995), year(1995), bi(1995), month(3), day(24))));
 
 
-function test(){
-    const numbers = document.getElementById("numeros").value;
-    console.log(numbers);
-}
+
+function test() {
+    const number1 = parseInt(document.getElementById("input-year").value);
+    const number2 = parseInt(document.getElementById("input-month").value);
+    const number3 = parseInt(document.getElementById("input-day").value);
+
+    // console.log(number1, number2, number3);
+
+    const centuryResult = century(number1);
+    // console.log("Century:", centuryResult);
+
+    const yearResult = year(number1);
+    // console.log("Year:", yearResult);
+
+    const biResult = bi(number1);
+    // console.log("Bi:", biResult);
+
+    const monthResult = month(number2);
+    // console.log("Month:", monthResult);
+
+    const dayResult = day(number3);
+    // console.log("Day:", dayResult);
+
+    const weekDayResult = weekDay(centuryResult, yearResult, biResult, monthResult, dayResult);
+    // console.log("WeekDay:", weekDayResult);
+
+    const laborDayResult = laborDay(weekDayResult);
+    // console.log("LaborDay:", laborDayResult);
+
+    document.getElementById("test").innerHTML = laborDayResult;
+};
+
+
+
+
 
 
 

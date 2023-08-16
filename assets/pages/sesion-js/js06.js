@@ -6,19 +6,19 @@ console.log("Sesión JS06 Manipulación del DOM");
 const findElementById = () => {
     const title = document.getElementById("title");
     console.log(title);
-    console.log( typeof title); // Object
-    console.log( title.innerHTML ); // Sesión X
+    console.log(typeof title); // Object
+    console.log(title.innerHTML); // Sesión X
     //title.innerHTML = `Generation - Sesión JS 06`;
-    title.innerHTML = ` <span class="text-primary"> Generation </span> - Sesión JS 06`;    
+    title.innerHTML = ` <span id="generation" class="text-primary"> Generation </span> - Sesión JS 06`;
 }
 
 findElementById();
 
 //----------------Encontrar elementos por tu etiqueta (tag)---------------
 
-const changeElementsByTagName = () =>{
+const changeElementsByTagName = () => {
     const unorderList = document.getElementsByTagName("li"); // Colección de elementos
-    console.log( unorderList ); // HTML Collection
+    console.log(unorderList); // HTML Collection
 
     for (const listItem of unorderList) {
         listItem.innerHTML = `<span class="text-success fs-4">  ${listItem.innerHTML} 🛸 </span>`
@@ -31,13 +31,13 @@ changeElementsByTagName();
 //--------------- Uso de selector universarl ---------------------------
 // querySelector
 
-const findElementByQuerySelector = () =>{
+const findElementByQuerySelector = () => {
     // const element = document.querySelector( "#title" ); // seleccionar por ID
     // const element = document.querySelector( ".text-warning" ); // seleccionar por clase
     // const element = document.querySelector( "ul" ); // seleccionar por tag
     // const element = document.querySelector( "li" ); // seleccionar por tag
-    const element = document.querySelector( "h1 span" ); // seleccionar por tag
-    console.log( element );
+    const element = document.querySelector("h1 span"); // seleccionar por tag
+    console.log(element);
 
 }
 
@@ -46,8 +46,8 @@ findElementByQuerySelector();
 //----------------- Crear nuevo elemento HTML --------------------------
 // appendChild
 
-const newElement = () =>{
-    const newElement = document.createElement ("div"); // <div>    </div>
+const newElement = () => {
+    const newElement = document.createElement("div"); // <div>    </div>
 
     newElement.innerHTML = `La Ch30 le gusta:
      <ul>
@@ -60,7 +60,41 @@ const newElement = () =>{
     `;
 
     const descriptionCh30 = document.querySelector("#descriptionCh30");
-    descriptionCh30.appendChild( newElement );
+    descriptionCh30.appendChild(newElement);
 }
 
 newElement();
+
+//Cambiar color de textp
+
+const changeColor = (color) => {
+    const descriptionCh30 = document.getElementById("descriptionCh30");
+    descriptionCh30.style.color = color;
+    descriptionCh30.style.border = `thin solid ${color}`;
+}
+changeColor("aqua");
+
+//propiedades de visualizacion(desaparecer el elemento)
+//display: none (quitar el elemento del DOM)
+//visibility: hidden (ocultar el elemento)
+
+const getReferenceTitleGeneration = () => {
+    return document.getElementById("generation");
+   }
+   
+   const displayNoneElement = () => {
+    const generation = getReferenceTitleGeneration();
+    generation.style.display = "none"; // quitar el elemento
+   }
+   
+   const hiddenElement = () => {
+       const generation = getReferenceTitleGeneration();
+       generation.style.visibility = "hidden"  // ocultar el elemento
+   }
+   
+   const resetElements = () => {
+       const generation = getReferenceTitleGeneration();
+       generation.style.visibility = "visible"; 
+       generation.style.display = "inline"; 
+   
+   }
