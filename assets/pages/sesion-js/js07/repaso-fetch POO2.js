@@ -2,8 +2,22 @@ console.log("API Fetch");
 
 
 const button = document.getElementById("button-get-users");
-button.addEventListener("click", () => getData(url));
+button.addEventListener("click", () => {
+    const userDataLocalStorage = localStorage.getItem('userData');
+    const timePosted = localStorage.getItem('timestamp');
+    const currentTime = new Date().getTime();
 
+    if (userDataLocalStorage && timePosted && currentTime - parseInt(timePosted) < 60000) {
+        // Si hay datos en el LS usarlos
+        const userDataLocalStorageJson = JSON.parse(userDataLocalStorage);
+        printToDOM(userDataLocalStorageJson);
+      } else {
+        // Solicita datos al server de primera vez
+        getData(url);
+      }
+    
+
+});
 
 
 const url = "https://reqres.in/api/users?delay=3";
@@ -20,8 +34,8 @@ const getData =  ( url )=>{
             printToDOM(resolveJson)
             const jsonData = JSON.stringify(resolveJson);
             localStorage.setItem('userData',jsonData);
-            const currentTime = new Date().getTime();
-            localStorage.setItem('timestamp', currentTime);
+            const localStorageTime = new Date().getTime();
+            localStorage.setItem('timestamp', localStorageTime);
 
         })
         .catch( (error)=> console.warn( error ) );
